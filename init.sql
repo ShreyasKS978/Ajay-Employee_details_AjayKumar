@@ -1,6 +1,3 @@
-
-
-
 CREATE TABLE employees (
     id VARCHAR(7) PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
@@ -17,3 +14,11 @@ CREATE TABLE employees (
     profile_image VARCHAR(255)
 );
 
+
+CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    profile_image TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
