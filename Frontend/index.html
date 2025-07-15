@@ -6,27 +6,23 @@
     <title>Employee Details</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
+        /* Unchanged CSS from previous artifact */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Segoe UI', Arial, sans-serif;
-            background-color: #f4f7fa;
+            background-color: #ffffff;
             color: #333;
             line-height: 1.6;
         }
-
-        /* Animations */
         @keyframes moveCircles {
             0% { transform: translateY(0) translateX(0); }
             50% { transform: translateY(-50%) translateX(-50%); }
             100% { transform: translateY(0) translateX(0); }
         }
-
-        /* Header */
         header {
             position: relative;
             text-align: center;
@@ -38,7 +34,6 @@
             margin-bottom: 30px;
             overflow: hidden;
         }
-
         header h1 {
             font-size: 2.5rem;
             font-weight: 700;
@@ -46,7 +41,6 @@
             z-index: 2;
             position: relative;
         }
-
         header p {
             font-size: 1.2rem;
             font-weight: 300;
@@ -55,7 +49,6 @@
             opacity: 0.9;
             z-index: 2;
         }
-
         .banner-background {
             position: absolute;
             top: 0;
@@ -65,7 +58,6 @@
             z-index: 1;
             overflow: hidden;
         }
-
         .circle {
             position: absolute;
             width: 200px;
@@ -74,26 +66,21 @@
             border-radius: 50%;
             animation: moveCircles 10s infinite linear;
         }
-
         .circle:nth-child(1) {
             top: 10%;
             left: 20%;
             animation-duration: 8s;
         }
-
         .circle:nth-child(2) {
             top: 50%;
             left: 70%;
             animation-duration: 12s;
         }
-
         .circle:nth-child(3) {
             top: 80%;
             left: 40%;
             animation-duration: 15s;
         }
-
-        /* Notification Section */
         .notification-section {
             background: linear-gradient(135deg, rgba(195, 195, 255, 0.8), rgba(187, 238, 250, 0.7));
             padding: 20px;
@@ -104,13 +91,11 @@
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
-
         .notification-section h3 {
             font-size: 1.8rem;
             color: #2c3e50;
             margin-bottom: 15px;
         }
-
         .user-profile {
             display: flex;
             align-items: center;
@@ -122,11 +107,9 @@
             position: relative;
             transition: transform 0.3s ease;
         }
-
         .user-profile:hover {
             transform: translateY(-3px);
         }
-
         .user-profile img {
             width: 40px;
             height: 40px;
@@ -134,24 +117,20 @@
             margin-right: 15px;
             object-fit: cover;
         }
-
         .user-profile-content {
             flex: 1;
             text-align: left;
         }
-
         .user-profile-content .username {
             font-weight: 600;
             font-size: 1.1rem;
             color: #2c3e50;
         }
-
         .user-profile-content p {
             font-size: 0.9rem;
             color: #7f8c8d;
             margin: 3px 0;
         }
-
         .user-profile-close {
             cursor: pointer;
             font-size: 1rem;
@@ -160,12 +139,9 @@
             top: 15px;
             right: 15px;
         }
-
         .user-profile-close:hover {
             color: #e74c3c;
         }
-
-        /* Top Section */
         .top-section {
             display: flex;
             justify-content: space-between;
@@ -174,7 +150,6 @@
             margin: 20px auto;
             padding: 0 20px;
         }
-
         .addnew {
             background: linear-gradient(135deg, #8e44ad, #3498db);
             color: #fff;
@@ -186,12 +161,10 @@
             cursor: pointer;
             transition: background 0.3s ease, transform 0.2s ease;
         }
-
         .addnew:hover {
             background: linear-gradient(135deg, #9b59b6, #2980b9);
             transform: translateY(-2px);
         }
-
         .search-bar {
             display: flex;
             align-items: center;
@@ -202,7 +175,6 @@
             width: 300px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
-
         .search-bar input {
             border: none;
             padding: 8px;
@@ -210,19 +182,15 @@
             width: 100%;
             outline: none;
         }
-
         .search-bar i {
             font-size: 1.2rem;
             color: #7f8c8d;
             cursor: pointer;
             padding: 8px;
         }
-
         .search-bar i:hover {
             color: #2c3e50;
         }
-
-        /* Form Container */
         .form-container {
             display: none;
             background: #fff;
@@ -232,18 +200,15 @@
             border-radius: 12px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
         }
-
         .form-container h2 {
             text-align: center;
             font-size: 1.8rem;
             color: #2c3e50;
             margin-bottom: 20px;
         }
-
         .input-group {
             margin-bottom: 15px;
         }
-
         .input-group label {
             display: block;
             font-size: 1rem;
@@ -251,7 +216,6 @@
             color: #2c3e50;
             margin-bottom: 5px;
         }
-
         .form-container input,
         .form-container select {
             width: 100%;
@@ -261,29 +225,24 @@
             font-size: 1rem;
             transition: border-color 0.3s ease;
         }
-
         .form-container input[type="file"] {
             padding: 10px 0;
         }
-
         .form-container input:focus,
         .form-container select:focus {
             border-color: #6a11cb;
             outline: none;
         }
-
         .form-container select {
             appearance: none;
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24"><path fill="%237f8c8d" d="M7 10l5 5 5-5z"/></svg>') no-repeat right 12px center;
         }
-
         .error-message {
             color: #e74c3c;
             font-size: 0.85rem;
             margin-top: 5px;
             display: none;
         }
-
         .profile-image-preview {
             margin-top: 10px;
             max-width: 100px;
@@ -292,7 +251,6 @@
             border-radius: 8px;
             display: none;
         }
-
         .button, .save-btn {
             background: linear-gradient(135deg, #6a11cb, #2575fc);
             color: #fff;
@@ -305,13 +263,10 @@
             cursor: pointer;
             transition: background 0.3s ease, transform 0.2s ease;
         }
-
         .button:hover, .save-btn:hover {
             background: linear-gradient(135deg, #7d26d4, #3498db);
             transform: translateY(-2px);
         }
-
-        /* Employee Cards */
         .main-content {
             display: flex;
             flex-wrap: wrap;
@@ -320,7 +275,6 @@
             margin: 0 auto;
             padding: 20px;
         }
-
         .employee-row {
             background: #fff;
             border-radius: 12px;
@@ -331,16 +285,13 @@
             flex-direction: column;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-
         .employee-row:hover {
             transform: translateY(-5px);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
-
         .employee-details {
             max-width: 100%;
         }
-
         .employee-image {
             width: 60px;
             height: 60px;
@@ -348,7 +299,6 @@
             object-fit: cover;
             margin-bottom: 15px;
         }
-
         .para {
             display: flex;
             align-items: center;
@@ -356,23 +306,19 @@
             margin-bottom: 12px;
             color: #2c3e50;
         }
-
         .para strong {
             width: 160px;
             font-weight: 600;
         }
-
         .para i {
             width: 20px;
             margin-right: 10px;
             color: #6a11cb;
         }
-
         .para .editable {
             margin-left: 10px;
             color: #34495e;
         }
-
         .deletee {
             background: #e74c3c;
             color: #fff;
@@ -385,11 +331,9 @@
             margin-right: 10px;
             transition: background 0.3s ease;
         }
-
         .deletee:hover {
             background: #c0392b;
         }
-
         .edit-btn {
             background: #9b59b6;
             color: #fff;
@@ -401,11 +345,9 @@
             cursor: pointer;
             transition: background 0.3s ease;
         }
-
         .edit-btn:hover {
             background: #8e44ad;
         }
-
         .back-btn {
             background: #e74c3c;
             color: #fff;
@@ -420,12 +362,9 @@
             text-align: center;
             transition: background 0.3s ease;
         }
-
         .back-btn:hover {
             background: #c0392b;
         }
-
-        /* Confirmation Dialog */
         .confirm-dialog {
             position: fixed;
             top: 0;
@@ -438,7 +377,6 @@
             justify-content: center;
             z-index: 1000;
         }
-
         .confirm-dialog-content {
             background: #fff;
             padding: 20px;
@@ -448,25 +386,21 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
             animation: fadeInUp 0.4s ease-out;
         }
-
         .confirm-dialog-content h3 {
             font-size: 1.5rem;
             color: #2c3e50;
             margin-bottom: 15px;
         }
-
         .confirm-dialog-content p {
             font-size: 1rem;
             color: #7f8c8d;
             margin-bottom: 20px;
         }
-
         .confirm-dialog-buttons {
             display: flex;
             justify-content: flex-end;
             gap: 10px;
         }
-
         .confirm-dialog-buttons button {
             padding: 10px 20px;
             border: none;
@@ -475,26 +409,20 @@
             cursor: pointer;
             transition: background 0.3s ease;
         }
-
         .confirm-cancel {
             background: #dfe6e9;
             color: #2c3e50;
         }
-
         .confirm-cancel:hover {
             background: #bdc3c7;
         }
-
         .confirm-ok {
             background: #6a11cb;
             color: #fff;
         }
-
         .confirm-ok:hover {
             background: #560bad;
         }
-
-        /* Alerts */
         .alert {
             position: fixed;
             top: 20px;
@@ -510,43 +438,34 @@
             z-index: 1000;
             animation: slideInRight 0.5s ease-out, slideOutRight 0.5s ease-out 2.5s forwards;
         }
-
         .alert.success {
             background: #2ecc71;
         }
-
         .alert.error {
             background: #e74c3c;
         }
-
         @keyframes slideInRight {
             from { transform: translateX(100%); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
         }
-
         @keyframes slideOutRight {
             from { transform: translateX(0); opacity: 1; }
             to { transform: translateX(100%); opacity: 0; }
         }
-
         @keyframes fadeInUp {
             from { transform: translateY(20px); opacity: 0; }
             to { transform: translateY(0); opacity: 1; }
         }
-
-        /* Media Queries */
         @media screen and (max-width: 1024px) {
             .main-content {
                 flex-direction: column;
                 align-items: center;
                 padding: 10px;
             }
-
             .form-container {
                 width: 90%;
                 padding: 15px;
             }
-
             .employee-row {
                 flex-direction: column;
                 align-items: center;
@@ -554,145 +473,116 @@
                 padding: 15px;
                 text-align: center;
             }
-
             .notification-section {
                 width: 90%;
             }
         }
-
         @media screen and (max-width: 768px) {
             header h1 {
                 font-size: 2rem;
             }
-
             header p {
                 font-size: 1rem;
             }
-
             .top-section {
                 flex-direction: column;
                 align-items: center;
                 gap: 15px;
             }
-
             .search-bar {
                 width: 100%;
                 max-width: 400px;
             }
-
             .addnew {
                 width: 100%;
                 max-width: 400px;
             }
-
             .form-container {
                 width: 100%;
                 padding: 10px;
             }
-
             .employee-row {
                 width: 100%;
                 padding: 10px;
             }
-
             .para {
                 font-size: 0.9rem;
             }
-
             .deletee, .edit-btn {
                 width: 100%;
                 margin: 5px 0;
             }
-
             .notification-section {
                 width: 100%;
             }
         }
-
         @media screen and (max-width: 480px) {
             header {
                 padding: 15px;
                 border-radius: 0 0 10px 10px;
             }
-
             header h1 {
                 font-size: 1.5rem;
             }
-
             header p {
                 font-size: 0.9rem;
             }
-
             .top-section {
                 flex-direction: row;
                 gap: 10px;
             }
-
             .addnew {
                 width: 40%;
                 padding: 10px;
             }
-
             .search-bar {
                 width: 55%;
                 margin-top: 0;
             }
-
             .search-bar input {
                 width: 80%;
                 font-size: 0.9rem;
             }
-
             .form-container input,
             .form-container select {
                 width: 100%;
                 padding: 10px;
             }
-
             .employee-row {
                 padding: 10px;
             }
-
             .para {
                 font-size: 0.85rem;
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 5px;
             }
-
             .para strong {
                 width: auto;
             }
-
             .para .editable {
                 margin-left: 0;
             }
-
             .deletee, .edit-btn {
                 width: 45%;
                 margin: 5px;
             }
-
             .notification-section {
                 width: 100%;
             }
-
             .user-profile {
                 flex-direction: column;
                 align-items: flex-start;
                 padding: 10px;
             }
-
             .user-profile img {
                 margin-bottom: 10px;
                 margin-right: 0;
             }
-
             .employee-image {
                 width: 50px;
                 height: 50px;
             }
-
             .profile-image-preview {
                 max-width: 80px;
                 max-height: 80px;
@@ -711,13 +601,13 @@
         <p>Track and manage employee details, add and remove employees</p>
     </header>
 
-    <div class="notification-section" id="notificationSection">
+    <!-- <div class="notification-section" id="notificationSection">
         <h3>All Signed-Up Members</h3>
         <div id="notificationList"></div>
-    </div>
+    </div> -->
 
     <div class="top-section">
-        <button class="addnew" onclick="toggleForm()">Add New Employee</button>
+        <button class="addnew" id="addNewButton">Add New Employee</button>
         <div class="search-bar">
             <input type="text" placeholder="Search..." id="searchInput" />
             <i class="fa-brands fa-searchengin" onclick="searchEmployees()"></i>
@@ -729,17 +619,25 @@
         <form id="addEmployeeForm" enctype="multipart/form-data">
             <div class="input-group">
                 <label for="empName">Employee Name:</label>
-                <input type="text" id="empName" placeholder="Enter Employee Name" required minlength="3" maxlength="50" pattern="^[A-Za-z]+(?: [A-Za-z]+)*$" title="Name should contain only letters and spaces, no leading/trailing spaces">
+                <input type="text" id="empName" placeholder="Enter Employee Name" required minlength="3" maxlength="50" pattern="^[A-Za-z]+(?: [A-Za-z]+)*$" title="Name should contain only letters and single spaces, no leading/trailing/consecutive spaces">
                 <div class="error-message" id="nameError"></div>
             </div>
             <div class="input-group">
                 <label for="empId">Employee ID:</label>
-                <input type="text" id="empId" placeholder="Enter Employee ID (7 characters)" required minlength="7" maxlength="7" pattern="^[A-Z]{3}[0-9]{4}$" title="Employee ID should be in the format: 3 uppercase letters followed by 4 digits">
+                <input type="text" id="empId" placeholder="Enter Employee ID (e.g., ATS0xxx)" required minlength="7" maxlength="7" pattern="^[ATS]{3}0(?!000)[0-9]{3}$" title="Please enter a valid Employee ID (ATS0 followed by 3 digits, not all zeros)">
                 <div class="error-message" id="idError"></div>
             </div>
             <div class="input-group">
                 <label for="empRole">Role:</label>
-                <input type="text" id="empRole" placeholder="Enter Role" pattern="^[A-Za-z]+(?: [A-Za-z]+)*$" required minlength="3" maxlength="40" title="Role should contain only letters and spaces">
+                <select id="empRole" name="role" required>
+                    <option value="">Select Role</option>
+                    <option value="Developer">Developer</option>
+                    <option value="Tester">Tester</option>
+                    <option value="Manager">Manager</option>
+                    <option value="Analyst">Analyst</option>
+                    <option value="Designer">Designer</option>
+                    <option value="Administrator">Administrator</option>
+                </select>
                 <div class="error-message" id="roleError"></div>
             </div>
             <div class="input-group">
@@ -759,17 +657,17 @@
             </div>
             <div class="input-group">
                 <label for="empLocation">Location:</label>
-                <input type="text" id="empLocation" placeholder="Enter Location" required minlength="3" maxlength="40" pattern="^[A-Za-z]+(?: [A-Za-z]+)*$" title="Location should contain only letters and spaces">
+                <input type="text" id="empLocation" placeholder="Enter Location" required minlength="3" maxlength="40" pattern="^[A-Za-z]+(?: [A-Za-z]+)*$" title="Location should contain only letters and single spaces, no leading/trailing/consecutive spaces">
                 <div class="error-message" id="locationError"></div>
             </div>
             <div class="input-group">
                 <label for="empEmail">Email Address:</label>
-                <input type="email" id="empEmail" placeholder="Enter Email Address" required minlength="5" maxlength="50" pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" title="Please enter a valid email address">
+                <input type="email" id="empEmail" placeholder="Enter Email Address" required minlength="7" maxlength="50" pattern="^[a-zA-Z][a-zA-Z0-9._-]*[a-zA-Z0-9]@astrolitetech\.com$" title="Email must have at least 3 letters, allow ._- (not consecutive), and use .astrolitetech.com, no spaces">
                 <div class="error-message" id="emailError"></div>
             </div>
             <div class="input-group">
                 <label for="empPhone">Phone Number:</label>
-                <input type="tel" id="empPhone" placeholder="Enter Phone Number (10 digits)" pattern="[0-9]{10}" maxlength="10" minlength="10" required title="Phone number must be 10 digits">
+                <input type="tel" id="empPhone" placeholder="Enter Phone Number (10 digits)" pattern="[6-9][0-9]{9}" maxlength="10" minlength="10" required title="Phone number must be 10 digits starting with 6, 7, 8, or 9, no spaces">
                 <div class="error-message" id="phoneError"></div>
             </div>
             <div class="input-group">
@@ -784,17 +682,17 @@
             </div>
             <div class="input-group">
                 <label for="empSkills">Skills:</label>
-                <input type="text" id="empSkills" placeholder="Enter Skills (comma separated)" required minlength="3" maxlength="100" pattern="^[A-Za-z]+(?:,[A-Za-z]+)*$" title="Enter skills separated by commas">
+                <input type="text" id="empSkills" placeholder="Enter Skills (comma separated)" required minlength="3" maxlength="100" pattern="^[A-Za-z]+(?:,[A-Za-z]+)*$" title="Enter skills separated by commas, only letters and single spaces, no leading/trailing/consecutive spaces">
                 <div class="error-message" id="skillsError"></div>
             </div>
             <div class="input-group">
                 <label for="empAchievement">Career Achievement:</label>
-                <input type="text" id="empAchievement" placeholder="Enter Career Achievement" required minlength="4" maxlength="100" title="Achievement should be at least 4 characters">
+                <input type="text" id="empAchievement" placeholder="Enter Career Achievement" minlength="4" maxlength="100" title="Achievement should be at least 4 characters if provided, no leading/trailing/consecutive spaces">
                 <div class="error-message" id="achievementError"></div>
             </div>
             <div class="input-group">
-                <label for="empProfileImage">Profile Image (Optional):</label>
-                <input type="file" id="empProfileImage" accept="image/jpeg,image/png">
+                <label for="empProfileImage">Profile Image:</label>
+                <input type="file" id="empProfileImage" accept="image/jpeg,image/png" required>
                 <img class="profile-image-preview" id="profileImagePreview" alt="Profile Image Preview">
                 <div class="error-message" id="profileImageError"></div>
             </div>
@@ -804,7 +702,6 @@
 
     <div class="main-content" id="employeeCards"></div>
 
-    <!-- Confirmation Dialog -->
     <div class="confirm-dialog" id="confirmDialog">
         <div class="confirm-dialog-content">
             <h3 id="confirmTitle">Confirm Action</h3>
@@ -817,10 +714,9 @@
     </div>
 
     <script>
-        // Fetch employees from server
         async function fetchEmployees() {
             try {
-                const response = await fetch('http://13.201.55.224:3029/api/employees');
+                const response = await fetch('http://13.203.228.93:3029/api/employees');
                 if (!response.ok) throw new Error('Failed to fetch employees');
                 const employees = await response.json();
                 localStorage.setItem('employees', JSON.stringify(employees));
@@ -834,13 +730,11 @@
             }
         }
 
-        // Fetch all users
         async function fetchAllUsers() {
             try {
-                const response = await fetch('http://13.201.55.224:3029/api/all-users');
+                const response = await fetch('http://13.203.228.93:3029/api/all-users');
                 if (!response.ok) throw new Error('Failed to fetch all users');
                 const users = await response.json();
-                console.log('Raw /api/all-users response:', users);
                 users.forEach(showUserProfile);
             } catch (err) {
                 console.error('Error fetching all users:', err);
@@ -848,33 +742,24 @@
             }
         }
 
-        // Show user profile
         function showUserProfile(user) {
             if (!user.username || !user.email) {
                 console.warn('Skipping user profile due to missing username or email:', user);
                 return;
             }
 
-            console.log('User profile data:', {
-                username: user.username,
-                email: user.email,
-                profile_image: user.profile_image
-            });
-
             let imageUrl = 'https://via.placeholder.com/40';
             if (user.profile_image) {
-                const normalizedPath = user.profile_image.startsWith('/uploads/') 
+                const normalizedPath = user.profile_image.startsWith('/Uploads/') 
                     ? user.profile_image 
-                    : `/uploads/${user.profile_image}`;
-                imageUrl = `http://localhost:3000${normalizedPath}`;
+                    : `/Uploads/${user.profile_image}`;
+                imageUrl = `http://13.203.228.93:3029${normalizedPath}`;
                 const img = new Image();
                 img.onerror = () => {
                     console.warn(`Failed to load image for ${user.username}: ${imageUrl}`);
                     img.src = 'https://via.placeholder.com/40';
                 };
                 img.src = imageUrl;
-            } else {
-                console.warn(`No profile image for ${user.username}, using placeholder`);
             }
 
             const notificationList = document.getElementById('notificationList');
@@ -891,14 +776,12 @@
             notificationList.prepend(profile);
         }
 
-        // Close user profile
         function closeUserProfile(element) {
             const profile = element.parentElement;
             profile.style.animation = 'fadeOut 0.5s ease-in-out forwards';
             setTimeout(() => profile.remove(), 500);
         }
 
-        // Show Confirmation Dialog
         function showConfirmDialog(title, message, callback) {
             const dialog = document.getElementById('confirmDialog');
             const titleEl = document.getElementById('confirmTitle');
@@ -920,7 +803,6 @@
             };
         }
 
-        // Show Alert
         function showAlert(type, message) {
             const alert = document.createElement('div');
             alert.className = `alert ${type}`;
@@ -932,31 +814,29 @@
             setTimeout(() => alert.remove(), 3000);
         }
 
-        // Validate Profile Image
         function validateProfileImage() {
             const fileInput = document.getElementById('empProfileImage');
             const errorElement = document.getElementById('profileImageError');
             const file = fileInput.files[0];
 
             if (!file) {
-                errorElement.style.display = 'none';
-                return true; // Image is optional
+                errorElement.textContent = 'Profile image is required';
+                errorElement.style.display = 'block';
+                return false;
             }
 
             const validTypes = ['image/jpeg', 'image/png'];
-            const maxSize = 5 * 1024 * 1024; // 5MB
+            const maxSize = 5 * 1024 * 1024;
 
             if (!validTypes.includes(file.type)) {
                 errorElement.textContent = 'Only JPEG or PNG images are allowed';
                 errorElement.style.display = 'block';
-                showAlert('error', 'Only JPEG or PNG images are allowed');
                 return false;
             }
 
             if (file.size > maxSize) {
                 errorElement.textContent = 'Image size must be less than 5MB';
                 errorElement.style.display = 'block';
-                showAlert('error', 'Image size must be less than 5MB');
                 return false;
             }
 
@@ -964,7 +844,6 @@
             return true;
         }
 
-        // Preview Profile Image
         function previewProfileImage() {
             const fileInput = document.getElementById('empProfileImage');
             const preview = document.getElementById('profileImagePreview');
@@ -983,38 +862,25 @@
             }
         }
 
-        window.onload = function() {
-            fetchEmployees();
-            fetchAllUsers();
-            document.getElementById('empName').addEventListener('input', validateName);
-            document.getElementById('empId').addEventListener('input', validateId);
-            document.getElementById('empEmail').addEventListener('input', validateEmail);
-            document.getElementById('empPhone').addEventListener('input', validatePhone);
-            document.getElementById('empDob').addEventListener('change', validateDob);
-            document.getElementById('empJoinDate').addEventListener('change', validateJoinDate);
-            document.getElementById('empProfileImage').addEventListener('change', previewProfileImage);
-            document.getElementById('searchInput').addEventListener('keyup', function(event) {
-                if (event.key === 'Enter') searchEmployees();
-            });
-        };
-
-        function toggleForm() {
-            const form = document.getElementById('employeeForm');
-            form.style.display = form.style.display === 'none' ? 'block' : 'none';
-            document.getElementById('addemp').style.display = 'block';
-            const saveBtn = document.querySelector('.save-btn');
-            if (saveBtn) saveBtn.remove();
-            document.getElementById('addEmployeeForm').reset();
-            document.getElementById('profileImagePreview').style.display = 'none';
+        function normalizeInput(value, fieldId) {
+            if (fieldId === 'empId' || fieldId === 'empPhone') {
+                return value.replace(/\s/g, '');
+            }
+            return value.trim().replace(/\s+/g, fieldId === 'empSkills' ? ',' : ' ');
         }
 
         function validateName() {
-            const name = document.getElementById('empName').value;
+            const field = document.getElementById('empName');
+            const value = field.value;
             const errorElement = document.getElementById('nameError');
-            if (!name.match(/^[A-Za-z]+(?: [A-Za-z]+)*$/)) {
-                errorElement.textContent = "Name should contain only letters and spaces, no leading/trailing spaces";
+            if (!value) {
+                errorElement.textContent = 'Employee name is required';
                 errorElement.style.display = 'block';
-                showAlert('error', 'Invalid name format');
+                return false;
+            }
+            if (!value.match(/^[A-Za-z]+(?: [A-Za-z]+)*$/) || /\s{2,}/.test(value) || /^\s/.test(value) || /\s$/.test(value)) {
+                errorElement.textContent = 'Name should contain only letters and single spaces, no leading/trailing/consecutive spaces';
+                errorElement.style.display = 'block';
                 return false;
             }
             errorElement.style.display = 'none';
@@ -1022,20 +888,51 @@
         }
 
         function validateId() {
-            const id = document.getElementById('empId').value;
+            const field = document.getElementById('empId');
+            const value = normalizeInput(field.value, field.id);
+            field.value = value;
             const errorElement = document.getElementById('idError');
             const employees = JSON.parse(localStorage.getItem('employees')) || [];
-            if (!id.match(/^[A-Z]{3}[0-9]{4}$/)) {
-                errorElement.textContent = "ID must be 3 uppercase letters followed by 4 digits (e.g., ABC1234)";
+            if (!value) {
+                errorElement.textContent = 'Employee ID is required';
                 errorElement.style.display = 'block';
-                showAlert('error', 'Invalid Employee ID format');
+                return false;
+            }
+            if (!value.match(/^[ATS]{3}0(?!000)[0-9]{3}$/) || /\s/.test(field.value)) {
+                errorElement.textContent = 'Please enter a valid Employee ID (ATS0 followed by 3 digits, not all zeros).';
+                errorElement.style.display = 'block';
                 return false;
             }
             if (document.getElementById('addemp').style.display !== 'none' && 
-                employees.some(emp => emp.id === id)) {
-                errorElement.textContent = "This Employee ID already exists";
+                employees.some(emp => emp.id === value)) {
+                errorElement.textContent = 'This Employee ID already exists';
                 errorElement.style.display = 'block';
-                showAlert('error', 'Employee ID already exists');
+                return false;
+            }
+            errorElement.style.display = 'none';
+            return true;
+        }
+
+        function validateRole() {
+            const field = document.getElementById('empRole');
+            const value = field.value;
+            const errorElement = document.getElementById('roleError');
+            if (!value) {
+                errorElement.textContent = 'Role is required';
+                errorElement.style.display = 'block';
+                return false;
+            }
+            errorElement.style.display = 'none';
+            return true;
+        }
+
+        function validateGender() {
+            const field = document.getElementById('empGender');
+            const value = field.value;
+            const errorElement = document.getElementById('genderError');
+            if (!value) {
+                errorElement.textContent = 'Gender is required';
+                errorElement.style.display = 'block';
                 return false;
             }
             errorElement.style.display = 'none';
@@ -1043,12 +940,24 @@
         }
 
         function validateEmail() {
-            const email = document.getElementById('empEmail').value;
+            const field = document.getElementById('empEmail');
+            const value = normalizeInput(field.value, field.id);
+            field.value = value;
             const errorElement = document.getElementById('emailError');
-            if (!email.match(/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/)) {
-                errorElement.textContent = "Please enter a valid email address";
+            if (!value) {
+                errorElement.textContent = 'Email address is required';
                 errorElement.style.display = 'block';
-                showAlert('error', 'Invalid email format');
+                return false;
+            }
+            const letters = (value.match(/[a-zA-Z]/g) || []).length;
+            if (!value.match(/^[a-zA-Z][a-zA-Z0-9._-]*[a-zA-Z0-9]@astrolitetech\.com$/) || 
+                letters < 3 || 
+                /[._-]{2,}/.test(value) || 
+                /\s{2,}/.test(field.value) || 
+                /^\s/.test(field.value) || 
+                /\s$/.test(field.value)) {
+                errorElement.textContent = 'Email must have at least 3 letters, allow ._- (not consecutive), use .astrolitetech.com, no spaces';
+                errorElement.style.display = 'block';
                 return false;
             }
             errorElement.style.display = 'none';
@@ -1056,12 +965,18 @@
         }
 
         function validatePhone() {
-            const phone = document.getElementById('empPhone').value;
+            const field = document.getElementById('empPhone');
+            const value = normalizeInput(field.value, field.id);
+            field.value = value;
             const errorElement = document.getElementById('phoneError');
-            if (!phone.match(/^[0-9]{10}$/)) {
-                errorElement.textContent = "Phone number must be exactly 10 digits";
+            if (!value) {
+                errorElement.textContent = 'Phone number is required';
                 errorElement.style.display = 'block';
-                showAlert('error', 'Invalid phone number');
+                return false;
+            }
+            if (!value.match(/^[6-9][0-9]{9}$/) || /\s/.test(field.value)) {
+                errorElement.textContent = 'Phone number must be 10 digits starting with 6, 7, 8, or 9, no spaces';
+                errorElement.style.display = 'block';
                 return false;
             }
             errorElement.style.display = 'none';
@@ -1069,13 +984,18 @@
         }
 
         function validateDob() {
-            const dob = document.getElementById('empDob').value;
+            const field = document.getElementById('empDob');
+            const dob = field.value;
             const errorElement = document.getElementById('dobError');
+            if (!dob) {
+                errorElement.textContent = 'Date of birth is required';
+                errorElement.style.display = 'block';
+                return false;
+            }
             const age = calculateAge(dob);
             if (age < 20 || age > 60) {
                 errorElement.textContent = "Employee's age must be between 20 and 60 years";
                 errorElement.style.display = 'block';
-                showAlert('error', 'Invalid date of birth');
                 return false;
             }
             errorElement.style.display = 'none';
@@ -1083,27 +1003,98 @@
         }
 
         function validateJoinDate() {
-            const joinDate = document.getElementById('empJoinDate').value;
+            const field = document.getElementById('empJoinDate');
+            const joinDate = field.value;
             const dob = document.getElementById('empDob').value;
             const errorElement = document.getElementById('joinDateError');
+            if (!joinDate) {
+                errorElement.textContent = 'Join date is required';
+                errorElement.style.display = 'block';
+                return false;
+            }
             const today = new Date().toISOString().split('T')[0];
             const minJoinDate = '2021-01-01';
             if (joinDate > today) {
-                errorElement.textContent = "Join date must be today or a previous date.";
+                errorElement.textContent = 'Join date must be today or a previous date';
                 errorElement.style.display = 'block';
-                showAlert('error', 'Invalid join date');
                 return false;
             }
             if (joinDate < minJoinDate) {
-                errorElement.textContent = "Join date cannot be earlier than January 1, 2021.";
+                errorElement.textContent = 'Join date cannot be earlier than January 1, 2021';
                 errorElement.style.display = 'block';
-                showAlert('error', 'Invalid join date');
                 return false;
             }
             if (dob && new Date(joinDate) < new Date(dob)) {
-                errorElement.textContent = "Join date cannot be before date of birth.";
+                errorElement.textContent = 'Join date cannot be before date of birth';
                 errorElement.style.display = 'block';
-                showAlert('error', 'Invalid join date');
+                return false;
+            }
+            errorElement.style.display = 'none';
+            return true;
+        }
+
+        function validateLocation() {
+            const field = document.getElementById('empLocation');
+            const value = field.value;
+            const errorElement = document.getElementById('locationError');
+            if (!value) {
+                errorElement.textContent = 'Location is required';
+                errorElement.style.display = 'block';
+                return false;
+            }
+            if (!value.match(/^[A-Za-z]+(?: [A-Za-z]+)*$/) || /\s{2,}/.test(value) || /^\s/.test(value) || /\s$/.test(value)) {
+                errorElement.textContent = 'Location should contain only letters and single spaces, no leading/trailing/consecutive spaces';
+                errorElement.style.display = 'block';
+                return false;
+            }
+            errorElement.style.display = 'none';
+            return true;
+        }
+
+        function validateExperience() {
+            const field = document.getElementById('empExperience');
+            const value = field.value;
+            const errorElement = document.getElementById('experienceError');
+            if (value === '') {
+                errorElement.textContent = 'Experience is required';
+                errorElement.style.display = 'block';
+                return false;
+            }
+            const numValue = Number(value);
+            if (numValue < 0 || numValue > 40) {
+                errorElement.textContent = 'Experience must be between 0 and 40 years';
+                errorElement.style.display = 'block';
+                return false;
+            }
+            errorElement.style.display = 'none';
+            return true;
+        }
+
+        function validateSkills() {
+            const field = document.getElementById('empSkills');
+            const value = field.value;
+            const errorElement = document.getElementById('skillsError');
+            if (!value) {
+                errorElement.textContent = 'Skills are required';
+                errorElement.style.display = 'block';
+                return false;
+            }
+            if (!value.match(/^[A-Za-z]+(?:,[A-Za-z]+)*$/) || /\s{2,}/.test(value) || /^\s/.test(value) || /\s$/.test(value)) {
+                errorElement.textContent = 'Skills should be comma-separated letters, single spaces allowed, no leading/trailing/consecutive spaces';
+                errorElement.style.display = 'block';
+                return false;
+            }
+            errorElement.style.display = 'none';
+            return true;
+        }
+
+        function validateAchievement() {
+            const field = document.getElementById('empAchievement');
+            const value = field.value;
+            const errorElement = document.getElementById('achievementError');
+            if (value && (value.length < 4 || /\s{2,}/.test(value) || /^\s/.test(value) || /\s$/.test(value))) {
+                errorElement.textContent = 'Achievement must be at least 4 characters, no leading/trailing/consecutive spaces';
+                errorElement.style.display = 'block';
                 return false;
             }
             errorElement.style.display = 'none';
@@ -1123,8 +1114,70 @@
         }
 
         function validateEmployeeForm() {
-            return validateName() && validateId() && validateEmail() && validatePhone() && validateDob() && validateJoinDate() && validateProfileImage();
+            const isNameValid = validateName();
+            const isIdValid = validateId();
+            const isRoleValid = validateRole();
+            const isGenderValid = validateGender();
+            const isDobValid = validateDob();
+            const isLocationValid = validateLocation();
+            const isEmailValid = validateEmail();
+            const isPhoneValid = validatePhone();
+            const isJoinDateValid = validateJoinDate();
+            const isExperienceValid = validateExperience();
+            const isSkillsValid = validateSkills();
+            const isAchievementValid = validateAchievement();
+            const isProfileImageValid = validateProfileImage();
+            return isNameValid && isIdValid && isRoleValid && isGenderValid &&
+                   isDobValid && isLocationValid && isEmailValid && isPhoneValid &&
+                   isJoinDateValid && isExperienceValid && isSkillsValid &&
+                   isAchievementValid && isProfileImageValid;
         }
+
+        function toggleForm() {
+            const form = document.getElementById('employeeForm');
+            form.style.display = form.style.display === 'none' ? 'block' : 'none';
+            document.getElementById('addemp').style.display = 'block';
+            const saveBtn = document.querySelector('.save-btn');
+            if (saveBtn) saveBtn.remove();
+            document.getElementById('addEmployeeForm').reset();
+            document.getElementById('profileImagePreview').style.display = 'none';
+            document.querySelectorAll('.error-message').forEach(el => el.style.display = 'none');
+        }
+
+        window.onload = function() {
+            fetchEmployees();
+            fetchAllUsers();
+            document.getElementById('empName').addEventListener('input', validateName);
+            document.getElementById('empId').addEventListener('input', validateId);
+            document.getElementById('empRole').addEventListener('change', validateRole);
+            document.getElementById('empGender').addEventListener('change', validateGender);
+            document.getElementById('empEmail').addEventListener('input', validateEmail);
+            document.getElementById('empPhone').addEventListener('input', validatePhone);
+            document.getElementById('empDob').addEventListener('change', validateDob);
+            document.getElementById('empJoinDate').addEventListener('change', validateJoinDate);
+            document.getElementById('empLocation').addEventListener('input', validateLocation);
+            document.getElementById('empExperience').addEventListener('input', validateExperience);
+            document.getElementById('empSkills').addEventListener('input', validateSkills);
+            document.getElementById('empAchievement').addEventListener('input', validateAchievement);
+            document.getElementById('empProfileImage').addEventListener('change', previewProfileImage);
+            document.getElementById('searchInput').addEventListener('keyup', function(event) {
+                if (event.key === 'Enter') searchEmployees();
+            });
+
+            // Ensure single click for Add New Employee button
+            const addNewButton = document.getElementById('addNewButton');
+            addNewButton.removeEventListener('click', toggleForm);
+            addNewButton.addEventListener('click', function() {
+                toggleForm();
+            }, { once: true });
+            addNewButton.addEventListener('click', function reattachListener() {
+                addNewButton.removeEventListener('click', reattachListener);
+                addNewButton.addEventListener('click', function() {
+                    toggleForm();
+                }, { once: true });
+                addNewButton.addEventListener('click', reattachListener);
+            });
+        };
 
         document.getElementById('addEmployeeForm').addEventListener('submit', async function(event) {
             event.preventDefault();
@@ -1133,26 +1186,25 @@
             if (!validateEmployeeForm()) return;
 
             const formData = new FormData();
-            formData.append('id', document.getElementById('empId').value);
-            formData.append('name', document.getElementById('empName').value);
+            formData.append('id', normalizeInput(document.getElementById('empId').value, 'empId'));
+            formData.append('name', normalizeInput(document.getElementById('empName').value, 'empName'));
             formData.append('role', document.getElementById('empRole').value);
             formData.append('gender', document.getElementById('empGender').value);
             formData.append('dob', document.getElementById('empDob').value);
-            formData.append('location', document.getElementById('empLocation').value);
-            formData.append('email', document.getElementById('empEmail').value);
-            formData.append('phone', document.getElementById('empPhone').value);
+            formData.append('location', normalizeInput(document.getElementById('empLocation').value, 'empLocation'));
+            formData.append('email', normalizeInput(document.getElementById('empEmail').value, 'empEmail'));
+            formData.append('phone', normalizeInput(document.getElementById('empPhone').value, 'empPhone'));
             formData.append('joinDate', document.getElementById('empJoinDate').value);
             formData.append('experience', document.getElementById('empExperience').value);
-            formData.append('skills', document.getElementById('empSkills').value);
-            formData.append('achievement', document.getElementById('empAchievement').value);
+            formData.append('skills', normalizeInput(document.getElementById('empSkills').value, 'empSkills'));
+            const achievement = normalizeInput(document.getElementById('empAchievement').value, 'empAchievement');
+            if (achievement) formData.append('achievement', achievement);
             const fileInput = document.getElementById('empProfileImage');
-            if (fileInput.files[0]) {
-                formData.append('profileImage', fileInput.files[0]);
-            }
+            formData.append('profileImage', fileInput.files[0]);
 
             showConfirmDialog('Confirm Add Employee', 'Are you sure you want to add this employee?', async () => {
                 try {
-                    const response = await fetch('http://13.201.55.224:3029/api/add-employee', {
+                    const response = await fetch('http://13.203.228.93:3029/api/add-employee', {
                         method: 'POST',
                         body: formData
                     });
@@ -1161,17 +1213,17 @@
                     const employees = JSON.parse(localStorage.getItem('employees')) || [];
                     const newEmployee = {
                         id: document.getElementById('empId').value,
-                        name: document.getElementById('empName').value,
+                        name: normalizeInput(document.getElementById('empName').value, 'empName'),
                         role: document.getElementById('empRole').value,
                         gender: document.getElementById('empGender').value,
                         dob: document.getElementById('empDob').value,
-                        location: document.getElementById('empLocation').value,
+                        location: normalizeInput(document.getElementById('empLocation').value, 'empLocation'),
                         email: document.getElementById('empEmail').value,
                         phone: document.getElementById('empPhone').value,
                         joinDate: document.getElementById('empJoinDate').value,
                         experience: document.getElementById('empExperience').value,
-                        skills: document.getElementById('empSkills').value,
-                        achievement: document.getElementById('empAchievement').value,
+                        skills: normalizeInput(document.getElementById('empSkills').value, 'empSkills'),
+                        achievement: document.getElementById('empAchievement').value || null,
                         profile_image: result.profile_image || null
                     };
                     const existingIndex = employees.findIndex(emp => emp.id === newEmployee.id);
@@ -1188,17 +1240,17 @@
                     const employees = JSON.parse(localStorage.getItem('employees')) || [];
                     const newEmployee = {
                         id: document.getElementById('empId').value,
-                        name: document.getElementById('empName').value,
+                        name: normalizeInput(document.getElementById('empName').value, 'empName'),
                         role: document.getElementById('empRole').value,
                         gender: document.getElementById('empGender').value,
                         dob: document.getElementById('empDob').value,
-                        location: document.getElementById('empLocation').value,
+                        location: normalizeInput(document.getElementById('empLocation').value, 'empLocation'),
                         email: document.getElementById('empEmail').value,
                         phone: document.getElementById('empPhone').value,
                         joinDate: document.getElementById('empJoinDate').value,
                         experience: document.getElementById('empExperience').value,
-                        skills: document.getElementById('empSkills').value,
-                        achievement: document.getElementById('empAchievement').value,
+                        skills: normalizeInput(document.getElementById('empSkills').value, 'empSkills'),
+                        achievement: document.getElementById('empAchievement').value || null,
                         profile_image: null
                     };
                     const existingIndex = employees.findIndex(emp => emp.id === newEmployee.id);
@@ -1224,8 +1276,9 @@
             const formattedDob = dobDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
             const formattedJoinDate = joinDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
             const imageUrl = employee.profile_image 
-                ? `http://13.201.55.224:3029/${employee.profile_image}` 
+                ? `http://13.203.228.93:3029/${employee.profile_image}` 
                 : 'https://via.placeholder.com/60';
+            const experienceText = employee.experience == 0 ? 'Fresher' : `${employee.experience} years`;
             employeeCard.innerHTML = `
                 <img src="${imageUrl}" alt="Employee Image" class="employee-image">
                 <div class="employee-details">
@@ -1257,13 +1310,13 @@
                         <p class="para"><i class="fa-solid fa-calendar-check icon"></i><strong class="label">Join Date</strong><span class="colon">:</span><span class="editable value" data-field="joinDate">${formattedJoinDate}</span></p>
                     </div>
                     <div class="detail-row">
-                        <p class="para"><i class="fa-solid fa-chalkboard-teacher icon"></i><strong class="label">Experience</strong><span class="colon">:</span><span class="editable value" data-field="experience">${employee.experience} years</span></p>
+                        <p class="para"><i class="fa-solid fa-chalkboard-teacher icon"></i><strong class="label">Experience</strong><span class="colon">:</span><span class="editable value" data-field="experience">${experienceText}</span></p>
                     </div>
                     <div class="detail-row">
                         <p class="para"><i class="fa-solid fa-certificate icon"></i><strong class="label">Skills</strong><span class="colon">:</span><span class="editable value" data-field="skills">${employee.skills}</span></p>
                     </div>
                     <div class="detail-row">
-                        <p class="para"><i class="fa-solid fa-trophy icon"></i><strong class="label">Achievement</strong><span class="colon">:</span><span class="editable value" data-field="achievement">${employee.achievement}</span></p>
+                        <p class="para"><i class="fa-solid fa-trophy icon"></i><strong class="label">Achievement</strong><span class="colon">:</span><span class="editable value" data-field="achievement">${employee.achievement || 'None'}</span></p>
                     </div>
                     <button class="deletee" onclick="deleteEmployee('${employee.id}')">Delete</button>
                     <button class="edit-btn" onclick="editEmployee('${employee.id}')">Edit</button>
@@ -1277,7 +1330,7 @@
             const employee = employees.find(emp => emp.id === employeeId);
             showConfirmDialog('Confirm Delete', `Are you sure you want to delete ${employee ? employee.name : 'this employee'}?`, async () => {
                 try {
-                    const response = await fetch(`http://13.201.55.224:3029/api/delete-employee/${employeeId}`, {
+                    const response = await fetch(`http://13.203.228.93:3029/api/delete-employee/${employeeId}`, {
                         method: 'DELETE'
                     });
                     const result = await response.json();
@@ -1315,10 +1368,10 @@
             document.getElementById('empJoinDate').value = employee.joinDate;
             document.getElementById('empExperience').value = employee.experience;
             document.getElementById('empSkills').value = employee.skills;
-            document.getElementById('empAchievement').value = employee.achievement;
+            document.getElementById('empAchievement').value = employee.achievement || '';
             const preview = document.getElementById('profileImagePreview');
             if (employee.profile_image) {
-                preview.src = `http://13.201.55.224:3029/${employee.profile_image}`;
+                preview.src = `http://13.203.228.93:3029/${employee.profile_image}`;
                 preview.style.display = 'block';
             } else {
                 preview.src = '';
@@ -1335,25 +1388,28 @@
             saveBtn.onclick = async function() {
                 if (!validateEmployeeForm()) return;
                 const formData = new FormData();
-                formData.append('id', document.getElementById('empId').value);
-                formData.append('name', document.getElementById('empName').value);
+                formData.append('id', normalizeInput(document.getElementById('empId').value, 'empId'));
+                formData.append('name', normalizeInput(document.getElementById('empName').value, 'empName'));
                 formData.append('role', document.getElementById('empRole').value);
                 formData.append('gender', document.getElementById('empGender').value);
                 formData.append('dob', document.getElementById('empDob').value);
-                formData.append('location', document.getElementById('empLocation').value);
-                formData.append('email', document.getElementById('empEmail').value);
-                formData.append('phone', document.getElementById('empPhone').value);
+                formData.append('location', normalizeInput(document.getElementById('empLocation').value, 'empLocation'));
+                formData.append('email', normalizeInput(document.getElementById('empEmail').value, 'empEmail'));
+                formData.append('phone', normalizeInput(document.getElementById('empPhone').value, 'empPhone'));
                 formData.append('joinDate', document.getElementById('empJoinDate').value);
                 formData.append('experience', document.getElementById('empExperience').value);
-                formData.append('skills', document.getElementById('empSkills').value);
-                formData.append('achievement', document.getElementById('empAchievement').value);
+                formData.append('skills', normalizeInput(document.getElementById('empSkills').value, 'empSkills'));
+                const achievement = normalizeInput(document.getElementById('empAchievement').value, 'empAchievement');
+                if (achievement) formData.append('achievement', achievement);
                 const fileInput = document.getElementById('empProfileImage');
                 if (fileInput.files[0]) {
                     formData.append('profileImage', fileInput.files[0]);
+                } else if (employee.profile_image) {
+                    formData.append('existingProfileImage', employee.profile_image);
                 }
                 showConfirmDialog('Confirm Update', 'Are you sure you want to update this employee?', async () => {
                     try {
-                        const response = await fetch('http://13.201.55.224:3029/api/add-employee', {
+                        const response = await fetch('http://13.203.228.93:3029/api/add-employee', {
                             method: 'POST',
                             body: formData
                         });
@@ -1363,17 +1419,17 @@
                         if (index !== -1) {
                             employees[index] = {
                                 id: document.getElementById('empId').value,
-                                name: document.getElementById('empName').value,
+                                name: normalizeInput(document.getElementById('empName').value, 'empName'),
                                 role: document.getElementById('empRole').value,
                                 gender: document.getElementById('empGender').value,
                                 dob: document.getElementById('empDob').value,
-                                location: document.getElementById('empLocation').value,
+                                location: normalizeInput(document.getElementById('empLocation').value, 'empLocation'),
                                 email: document.getElementById('empEmail').value,
                                 phone: document.getElementById('empPhone').value,
                                 joinDate: document.getElementById('empJoinDate').value,
                                 experience: document.getElementById('empExperience').value,
-                                skills: document.getElementById('empSkills').value,
-                                achievement: document.getElementById('empAchievement').value,
+                                skills: normalizeInput(document.getElementById('empSkills').value, 'empSkills'),
+                                achievement: document.getElementById('empAchievement').value || null,
                                 profile_image: result.profile_image || employee.profile_image
                             };
                             localStorage.setItem('employees', JSON.stringify(employees));
@@ -1389,17 +1445,17 @@
                         if (index !== -1) {
                             employees[index] = {
                                 id: document.getElementById('empId').value,
-                                name: document.getElementById('empName').value,
+                                name: normalizeInput(document.getElementById('empName').value, 'empName'),
                                 role: document.getElementById('empRole').value,
                                 gender: document.getElementById('empGender').value,
                                 dob: document.getElementById('empDob').value,
-                                location: document.getElementById('empLocation').value,
+                                location: normalizeInput(document.getElementById('empLocation').value, 'empLocation'),
                                 email: document.getElementById('empEmail').value,
                                 phone: document.getElementById('empPhone').value,
                                 joinDate: document.getElementById('empJoinDate').value,
                                 experience: document.getElementById('empExperience').value,
-                                skills: document.getElementById('empSkills').value,
-                                achievement: document.getElementById('empAchievement').value,
+                                skills: normalizeInput(document.getElementById('empSkills').value, 'empSkills'),
+                                achievement: document.getElementById('empAchievement').value || null,
                                 profile_image: employee.profile_image
                             };
                             localStorage.setItem('employees', JSON.stringify(employees));
