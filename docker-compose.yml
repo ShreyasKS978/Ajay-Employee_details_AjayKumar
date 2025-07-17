@@ -8,7 +8,8 @@ services:
       - "8110:80"
     restart: unless-stopped
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
 
   backend:
     container_name: Backend-employee
@@ -18,19 +19,25 @@ services:
     environment:
       DB_USER: postgres
       DB_PASSWORD: admin123
-      DB_HOST: postgres
-      DB_PORT: 5432
+      DB_HOST: postgres  # Using service name (correct)
+      DB_PORT: 5432      # Internal port (correct)
       DB_NAME: auth_db
       EMPLOYEE_PORT: 3029
     restart: unless-stopped
     depends_on:
-      - postgres
+      postgres:
+        condition: service_healthy
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3029/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
 
   postgres:
     container_name: postgres-employee
     image: postgres:16
     ports:
-      - "6588:5432"
+      - "6588:5432"  # External:Internal
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: admin123
@@ -38,6 +45,11 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
       - ./sql.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
 
 volumes:
   postgres_data:
