@@ -14,7 +14,6 @@ CREATE TABLE employees (
     profile_image VARCHAR(255)
 );
 
-
 CREATE TABLE IF NOT EXISTS users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
