@@ -717,7 +717,7 @@
     <script>
         async function fetchEmployees() {
             try {
-                const response = await fetch('http://3.110.108.21:3029/api/employees');
+                const response = await fetch('http://13.201.102.139:3029/api/employees');
                 if (!response.ok) throw new Error('Failed to fetch employees');
                 const employees = await response.json();
                 localStorage.setItem('employees', JSON.stringify(employees));
@@ -733,7 +733,7 @@
 
         async function fetchAllUsers() {
             try {
-                const response = await fetch('http://3.110.108.21:3029/api/all-users');
+                const response = await fetch('http://13.201.102.139:3029/api/all-users');
                 if (!response.ok) throw new Error('Failed to fetch all users');
                 const users = await response.json();
                 users.forEach(showUserProfile);
@@ -754,7 +754,7 @@
                 const normalizedPath = user.profile_image.startsWith('/Uploads/') 
                     ? user.profile_image 
                     : `/Uploads/${user.profile_image}`;
-                imageUrl = `http://3.110.108.21:3029${normalizedPath}`;
+                imageUrl = `http://13.201.102.139:3029${normalizedPath}`;
                 const img = new Image();
                 img.onerror = () => {
                     console.warn(`Failed to load image for ${user.username}: ${imageUrl}`);
@@ -1205,7 +1205,7 @@
 
             showConfirmDialog('Confirm Add Employee', 'Are you sure you want to add this employee?', async () => {
                 try {
-                    const response = await fetch('http://3.110.108.21:3029/api/add-employee', {
+                    const response = await fetch('http://13.201.102.139:3029/api/add-employee', {
                         method: 'POST',
                         body: formData
                     });
@@ -1277,7 +1277,7 @@
             const formattedDob = dobDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
             const formattedJoinDate = joinDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
             const imageUrl = employee.profile_image 
-                ? `http://3.110.108.21:3029/${employee.profile_image}` 
+                ? `http://13.201.102.139:3029/${employee.profile_image}` 
                 : 'https://via.placeholder.com/60';
             const experienceText = employee.experience == 0 ? 'Fresher' : `${employee.experience} years`;
             employeeCard.innerHTML = `
@@ -1331,7 +1331,7 @@
             const employee = employees.find(emp => emp.id === employeeId);
             showConfirmDialog('Confirm Delete', `Are you sure you want to delete ${employee ? employee.name : 'this employee'}?`, async () => {
                 try {
-                    const response = await fetch(`http://3.110.108.21:3029/api/delete-employee/${employeeId}`, {
+                    const response = await fetch(`http://13.201.102.139:3029/api/delete-employee/${employeeId}`, {
                         method: 'DELETE'
                     });
                     const result = await response.json();
@@ -1372,7 +1372,7 @@
             document.getElementById('empAchievement').value = employee.achievement || '';
             const preview = document.getElementById('profileImagePreview');
             if (employee.profile_image) {
-                preview.src = `http://3.110.108.21:3029/${employee.profile_image}`;
+                preview.src = `http://13.201.102.139:3029/${employee.profile_image}`;
                 preview.style.display = 'block';
             } else {
                 preview.src = '';
@@ -1410,7 +1410,7 @@
                 }
                 showConfirmDialog('Confirm Update', 'Are you sure you want to update this employee?', async () => {
                     try {
-                        const response = await fetch('http://3.110.108.21:3029/api/add-employee', {
+                        const response = await fetch('http://13.201.102.139:3029/api/add-employee', {
                             method: 'POST',
                             body: formData
                         });
